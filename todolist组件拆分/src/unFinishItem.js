@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 
 class Todoitem extends Component {
     constructor(props) {
@@ -13,12 +14,23 @@ class Todoitem extends Component {
     render() {
         return <li
             onClick={this.LiClick}
-            dangerouslySetInnerHTML={{__html: this.props.item}}
+            // dangerouslySetInnerHTML={{__html: this.props.item}}
         >
-
+            {this.props.item}+{this.props.test}
         </li>
 
     }
 }
+
+Todoitem.propTypes={
+    test:PropTypes.number,
+    item:PropTypes.string,
+    deleteItem:PropTypes.func,
+    index:PropTypes.number,
+};
+
+Todoitem.defaultProps={
+    test:'123'
+};
 
 export default Todoitem;

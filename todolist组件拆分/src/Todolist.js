@@ -22,37 +22,42 @@ class Todolist extends Component {
 
     InputChange(e) {
 
-        this.setState({
-            inputValue: e.target.value,
-        })
+        const value = e.target.value;
 
+        this.setState(() => ({inputValue: value}))
 
     }
 
 
     BtnClick() {
-        this.setState({
-            list: [...this.state.list, this.state.inputValue],
+        this.setState((prevState) => ({
+            list: [...prevState.list, prevState.inputValue],
             inputValue: ''
-        })
+        }))
 
     }
 
     DoneLiClick(index) {
-        const doneList = [...this.state.doneList];
-        doneList.splice(index, 1);
-        this.setState({
-            doneList: doneList,
+
+        this.setState((prevState)=>{
+            const doneList = [...prevState.doneList];
+            doneList.splice(index, 1);
+            return {
+                doneList: doneList,
+            }
         })
     }
 
 
     LiClick(index) {
-        const list = [...this.state.list];
-        const doneList = list.splice(index, 1);
-        this.setState({
-            list: list,
-            doneList: [...this.state.doneList, doneList]
+
+        this.setState((prevState)=>{
+            const list = [...prevState.list];
+            const doneList = list.splice(index, 1);
+            return {
+                list: list,
+                doneList: [...prevState.doneList, doneList]
+            }
         })
     }
 
