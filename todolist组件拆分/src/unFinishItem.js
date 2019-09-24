@@ -30,7 +30,7 @@ Todoitem.propTypes={
 };
 
 Todoitem.defaultProps={
-    test:'123'
+    test:'1234'
 };
 
 export default Todoitem;
