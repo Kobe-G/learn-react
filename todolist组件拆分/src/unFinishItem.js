@@ -12,25 +12,30 @@ class Todoitem extends Component {
     }
 
     render() {
+        console.log("child render");
         return <li
             onClick={this.LiClick}
             // dangerouslySetInnerHTML={{__html: this.props.item}}
         >
-            {this.props.item}+{this.props.test}
+            {this.props.item}
         </li>
 
     }
+    shouldComponentUpdate()
+    {
+        return false;
+    }
 }
 
-Todoitem.propTypes={
-    test:PropTypes.number,
-    item:PropTypes.string,
-    deleteItem:PropTypes.func,
-    index:PropTypes.number,
+
+Todoitem.propTypes = {
+    item: PropTypes.string,
+    deleteItem: PropTypes.func,
+    index: PropTypes.number,
 };
 
-Todoitem.defaultProps={
-    test:'1234'
+Todoitem.defaultProps = {
+    test: '1234'
 };
 
 export default Todoitem;

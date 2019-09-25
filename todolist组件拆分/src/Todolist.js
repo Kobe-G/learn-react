@@ -1,7 +1,7 @@
 import React, {Component, Fragment} from 'react';
 import Todoitem from './unFinishItem';
 import Donelist from './Donelist';
-
+import axios from 'axios';
 class Todolist extends Component {
 
     constructor(props) {
@@ -61,9 +61,13 @@ class Todolist extends Component {
         })
     }
 
+    componentDidMount(){
+        // axios.get('./spi').then(()=>{alert(1)}).catch(()=>{alert(2)});
+    }
+
     render() {
         return (
-            <Fragment>
+            <>
                 {/*下面是一个输入框*/}
                 <div>
                     <label htmlFor="insertArea">输入内容</label>
@@ -106,7 +110,7 @@ class Todolist extends Component {
                         })
                     }
                 </ul>
-            </Fragment>
+            </>
 
         )
     };
